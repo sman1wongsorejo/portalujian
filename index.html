@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>PORTAL UJIAN CBT SMAN 1 WONGSOREJO</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root { 
+      --ig-gradient: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+      --bg-base: #FAFAFA; 
+      --card-bg: #FFFFFF; 
+      --text-main: #262626; 
+      --text-muted: #8E8E8E;
+    }
+    body { font-family: 'Inter', -apple-system, sans-serif; background-color: var(--bg-base); margin: 0; padding: 20px; color: var(--text-main); }
+    .container { max-width: 600px; margin: auto; }
+    .card { background: var(--card-bg); border-radius: 12px; padding: 30px; border: 1px solid #DBDBDB; margin-bottom: 20px; text-align: center; }
+    
+    /* Logo diubah menjadi 390px */
+    .logo { width: 390px; max-width: 100%; height: auto; margin-bottom: 20px; display: block; margin-left: auto; margin-right: auto; }
+    
+    h1 { font-size: 22px; font-weight: 700; color: #000; margin-top: 0; }
+    p { font-size: 14px; color: var(--text-muted); }
+    
+    .steps { text-align: left; margin: 25px 0; border-top: 1px solid #efefef; pt: 20px; }
+    .step-item { display: flex; align-items: flex-start; margin-bottom: 15px; margin-top: 15px; }
+    .step-icon { color: var(--text-main); width: 30px; margin-right: 15px; font-size: 20px; }
+    
+    .warning-box { background: #fff; border: 1px solid #FECDD3; padding: 20px; border-radius: 12px; text-align: left; margin-top: 20px; }
+    .warning-box h4 { color: #ED4956; margin: 0 0 10px 0; display: flex; align-items: center; gap: 8px; font-size: 14px; }
+    
+    .btn-start { 
+      display: block; background: var(--ig-gradient); color: white; padding: 14px; 
+      border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 14px;
+      margin-top: 30px; transition: 0.3s;
+    }
+    .btn-start:hover { opacity: 0.9; }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="card">
+    <img src="https://i.ibb.co.com/zTHpGJ3W/20260513-105333-0000.png" class="logo" alt="Logo SMANJO">
+    <h1>Portal Ujian SMAN 1 WONGSOREJO</h1>
+    <p>Selamat datang, di portal ujian sman1wongsorejo. Harap ikuti langkah-langkah berikut untuk memulai ujian.</p>
+
+    <div class="steps">
+      <div class="step-item">
+        <div class="step-icon"><i class="fas fa-id-card"></i></div>
+        <div><strong>Siapkan Kartu Ujian</strong><br>Pastikan Anda sudah memiliki Username dan Token yang valid.</div>
+      </div>
+      <div class="step-item">
+        <div class="step-icon"><i class="fas fa-sign-in-alt"></i></div>
+        <div><strong>Login Sistem</strong><br>Pilih kode ujian sesuai jadwal dan masukkan data diri Anda.</div>
+      </div>
+      <div class="step-item">
+        <div class="step-icon"><i class="fas fa-pencil-alt"></i></div>
+        <div><strong>Mulai Mengerjakan</strong><br>Baca soal dengan teliti dan jangan lupa klik tombol kumpulkan jika sudah selesai.</div>
+      </div>
+    </div>
+
+    <div class="warning-box">
+      <h4><i class="fas fa-exclamation-circle"></i> KEAMANAN & SANKSI</h4>
+      <p style="font-size: 13px; margin:0; font-weight:700;">Sistem menggunakan pengawas otomatis. Pelanggaran berikut akan berakibat fatal:</p>
+      <ul style="font-size: 13px; color: #ED4956; padding-left: 18px; margin: 8px 0;">
+        <li>Keluar aplikasi / membagi layar / floating window / minimize / membuka aplikasi lain WA,IG,GOOGLE: <b>Peringatan ke 1 dst</b></li>
+        <li>jika 4x Melanggar: <b>MAKA UJIAN DIBLOKIR OTOMATIS!</b></li>
+      </ul>
+      
+      <div style="border-top: 1px solid #efefef; padding-top: 10px; margin-top: 10px;">
+        <h4 style="font-size:13px; color:#262626;"><i class="fas fa-mobile-alt"></i> PENTING: Pengaturan Layar HP</h4>
+        <p style="font-size: 12px; margin: 5px 0;">Agar layar tidak mati saat mengerjakan:</p>
+        <ol style="font-size: 12px; padding-left: 18px; color: #475569; margin:0;">
+          <li>Buka <b>Pengaturan > Tampilan</b>.</li>
+          <li>Pilih <b>Waktu Tunggu Layar</b>.</li>
+          <li>Ubah menjadi <b>10 Menit</b> atau <b>Tidak Pernah</b>.</li>
+        </ol>
+      </div>
+    </div>
+
+    <a href="https://ujiansmanjo.web.id/" class="btn-start">Mulai Ujian Sekarang</a>
+  </div>
+</div>
+
+</body>
+</html>
