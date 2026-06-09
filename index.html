@@ -16,8 +16,8 @@
       --text-muted: #8E8E8E;
     }
     body { font-family: 'Inter', -apple-system, sans-serif; background-color: var(--bg-base); margin: 0; padding: 20px; color: var(--text-main); }
-    .container { max-width: 600px; margin: auto; }
-    .card { background: var(--card-bg); border-radius: 12px; padding: 30px; border: 1px solid #DBDBDB; margin-bottom: 20px; text-align: center; }
+    .container { max-width: 600px; margin: auto; min-height: 95vh; display: flex; flex-direction: column; justify-content: center; }
+    .card { background: var(--card-bg); border-radius: 12px; padding: 30px; border: 1px solid #DBDBDB; margin-bottom: 10px; text-align: center; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); }
     
     /* Logo diubah menjadi 390px */
     .logo { width: 390px; max-width: 100%; height: auto; margin-bottom: 20px; display: block; margin-left: auto; margin-right: auto; }
@@ -25,7 +25,7 @@
     h1 { font-size: 22px; font-weight: 700; color: #000; margin-top: 0; }
     p { font-size: 14px; color: var(--text-muted); }
     
-    .steps { text-align: left; margin: 25px 0; border-top: 1px solid #efefef; pt: 20px; }
+    .steps { text-align: left; margin: 25px 0; border-top: 1px solid #efefef; padding-top: 20px; }
     .step-item { display: flex; align-items: flex-start; margin-bottom: 15px; margin-top: 15px; }
     .step-icon { color: var(--text-main); width: 30px; margin-right: 15px; font-size: 20px; }
     
@@ -39,16 +39,15 @@
     }
     .btn-start:hover { opacity: 0.9; }
 
-    /* --- TAMBAHAN WATERMARK TEMA IG --- */
+    /* --- TAMBAHAN WATERMARK TEMA IG SEBAGAI FOOTER --- */
     .watermark-container {
-      position: fixed;
-      bottom: 20px;
-      right: 25px;
-      z-index: 1000;
-      pointer-events: none;
       display: flex;
+      justify-content: center;
       align-items: center;
       gap: 6px;
+      margin-top: 15px;
+      padding-bottom: 15px;
+      pointer-events: none;
     }
     .watermark-text {
       font-size: 12px;
@@ -66,11 +65,6 @@
     @keyframes igPulseGlow {
       0% { text-shadow: 0 0 5px rgba(225, 48, 108, 0.3); transform: scale(1); }
       100% { text-shadow: 0 0 12px rgba(225, 48, 108, 0.7), 0 0 20px rgba(240, 148, 51, 0.4); transform: scale(1.05); }
-    }
-
-    @media (max-width: 600px) {
-      .watermark-container { bottom: 15px; right: 15px; }
-      .watermark-text { font-size: 10px; }
     }
     /* ---------------------------------- */
   </style>
@@ -119,11 +113,11 @@
 
     <a href="https://sman1wongsorejo.github.io/ujian/" class="btn-start">Mulai Ujian Sekarang</a>
   </div>
-</div>
 
-<div class="watermark-container">
-  <span class="watermark-text">© 2026 Very_Andika.</span>
-  <span class="watermark-text watermark-glow">All Rights Reserved</span>
+  <div class="watermark-container">
+    <span class="watermark-text">© 2026 Very_Andika.</span>
+    <span class="watermark-text watermark-glow">All Rights Reserved</span>
+  </div>
 </div>
 
 </body>
