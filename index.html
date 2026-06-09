@@ -38,6 +38,41 @@
       margin-top: 30px; transition: 0.3s;
     }
     .btn-start:hover { opacity: 0.9; }
+
+    /* --- TAMBAHAN WATERMARK TEMA IG --- */
+    .watermark-container {
+      position: fixed;
+      bottom: 20px;
+      right: 25px;
+      z-index: 1000;
+      pointer-events: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .watermark-text {
+      font-size: 12px;
+      font-weight: 600;
+      color: rgba(38, 38, 38, 0.5);
+      letter-spacing: 0.5px;
+    }
+    .watermark-glow {
+      color: #E1306C; /* Warna pink khas Instagram */
+      font-weight: 700;
+      animation: igPulseGlow 2.5s ease-in-out infinite alternate;
+      display: inline-block;
+    }
+
+    @keyframes igPulseGlow {
+      0% { text-shadow: 0 0 5px rgba(225, 48, 108, 0.3); transform: scale(1); }
+      100% { text-shadow: 0 0 12px rgba(225, 48, 108, 0.7), 0 0 20px rgba(240, 148, 51, 0.4); transform: scale(1.05); }
+    }
+
+    @media (max-width: 600px) {
+      .watermark-container { bottom: 15px; right: 15px; }
+      .watermark-text { font-size: 10px; }
+    }
+    /* ---------------------------------- */
   </style>
 </head>
 <body>
@@ -84,6 +119,11 @@
 
     <a href="https://sman1wongsorejo.github.io/ujian/" class="btn-start">Mulai Ujian Sekarang</a>
   </div>
+</div>
+
+<div class="watermark-container">
+  <span class="watermark-text">© 2026 Very_Andika.</span>
+  <span class="watermark-text watermark-glow">All Rights Reserved</span>
 </div>
 
 </body>
