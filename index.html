@@ -5,68 +5,134 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>PORTAL UJIAN CBT SMAN 1 WONGSOREJO</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <!-- Menggunakan Font MLBB Style -->
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
   
   <style>
     :root { 
-      --ig-gradient: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-      --bg-base: #FAFAFA; 
-      --card-bg: #FFFFFF; 
-      --text-main: #262626; 
-      --text-muted: #8E8E8E;
+      /* TRUE MLBB COLOR PALETTE */
+      --primary: #d9a84a; /* Classic MLBB Gold */
+      --primary-hover: #f6d271; /* Bright MLBB Gold */
+      --primary-dark: #8c6827; 
+      --bg-base: #0b101a; /* Deep Navy Blue (Lobby) */
+      --card-bg: rgba(18, 24, 38, 0.95); /* UI Panel Background */
+      --text-main: #e0e6ed; 
+      --text-muted: #8392a5;
+      --accent: #2cb3ff; /* MLBB Cyan/Blue */
+      --danger: #e02828; /* MLBB Crimson Red */
+      
+      /* Top to Bottom Gold Gradient for Button */
+      --gradient-btn: linear-gradient(180deg, #f6cf6a 0%, #c48d28 100%);
+      --gradient-bg: radial-gradient(circle at 50% 0%, #1a253a 0%, #0b101a 70%);
     }
-    body { font-family: 'Inter', -apple-system, sans-serif; background-color: var(--bg-base); margin: 0; padding: 20px; color: var(--text-main); }
+
+    @keyframes heroSpawn {
+      0% { opacity: 0; transform: translateY(30px) scale(0.95); filter: brightness(2) drop-shadow(0 0 20px var(--primary)); }
+      100% { opacity: 1; transform: translateY(0) scale(1); filter: brightness(1) drop-shadow(0 0 0 transparent); }
+    }
+    @keyframes borderGlow {
+      0% { box-shadow: 0 0 10px rgba(217, 168, 74, 0.2), inset 0 0 5px rgba(217, 168, 74, 0.1); }
+      50% { box-shadow: 0 0 25px rgba(217, 168, 74, 0.4), inset 0 0 10px rgba(217, 168, 74, 0.2); }
+      100% { box-shadow: 0 0 10px rgba(217, 168, 74, 0.2), inset 0 0 5px rgba(217, 168, 74, 0.1); }
+    }
+    
+    body { 
+      font-family: 'Poppins', sans-serif; 
+      background-color: var(--bg-base);
+      background-image: 
+        radial-gradient(circle at 15% 20%, rgba(44, 179, 255, 0.05) 0%, transparent 30%),
+        radial-gradient(circle at 85% 80%, rgba(217, 168, 74, 0.08) 0%, transparent 40%),
+        var(--gradient-bg);
+      background-attachment: fixed; 
+      margin: 0; padding: 20px; color: var(--text-main); 
+    }
+    
     .container { max-width: 600px; margin: auto; min-height: 95vh; display: flex; flex-direction: column; justify-content: center; }
-    .card { background: var(--card-bg); border-radius: 12px; padding: 30px; border: 1px solid #DBDBDB; margin-bottom: 10px; text-align: center; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); }
     
-    /* Logo diubah menjadi 390px */
-    .logo { width: 390px; max-width: 100%; height: auto; margin-bottom: 20px; display: block; margin-left: auto; margin-right: auto; }
+    .card { 
+      background: var(--card-bg); 
+      border-radius: 6px; 
+      padding: 40px 30px; 
+      border: 1px solid rgba(217, 168, 74, 0.3); 
+      border-top: 3px solid var(--primary);
+      border-bottom: 3px solid var(--primary-dark);
+      margin-bottom: 10px; text-align: center; 
+      animation: heroSpawn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards, borderGlow 4s infinite alternate;
+      position: relative;
+    }
+
+    /* Aksen sudut ala game MOBA */
+    .card::before, .card::after {
+      content: ''; position: absolute; width: 25px; height: 25px; border: 2px solid var(--primary-hover); pointer-events: none;
+    }
+    .card::before { top: -3px; left: -1px; border-right: none; border-bottom: none; }
+    .card::after { bottom: -3px; right: -1px; border-left: none; border-top: none; }
     
-    h1 { font-size: 22px; font-weight: 700; color: #000; margin-top: 0; }
-    p { font-size: 14px; color: var(--text-muted); }
+    .logo { 
+      width: 390px; max-width: 100%; height: auto; margin-bottom: 20px; display: block; margin-left: auto; margin-right: auto; 
+      filter: drop-shadow(0px 0px 15px rgba(217, 168, 74, 0.4)); transition: transform 0.4s ease;
+    }
+    .logo:hover { transform: scale(1.05); filter: drop-shadow(0px 0px 25px rgba(217, 168, 74, 0.8)); }
     
-    .steps { text-align: left; margin: 25px 0; border-top: 1px solid #efefef; padding-top: 20px; }
-    .step-item { display: flex; align-items: flex-start; margin-bottom: 15px; margin-top: 15px; }
-    .step-icon { color: var(--text-main); width: 30px; margin-right: 15px; font-size: 20px; }
+    h1 { 
+      font-family: 'Cinzel', serif; font-size: 24px; font-weight: 800; 
+      color: var(--primary-hover); margin-top: 0; 
+      text-shadow: 0 2px 10px rgba(217, 168, 74, 0.5); text-transform: uppercase; letter-spacing: 1.5px;
+    }
+    p { font-size: 14px; color: var(--text-muted); font-weight: 500;}
     
-    .warning-box { background: #fff; border: 1px solid #FECDD3; padding: 20px; border-radius: 12px; text-align: left; margin-top: 20px; }
-    .warning-box h4 { color: #ED4956; margin: 0 0 10px 0; display: flex; align-items: center; gap: 8px; font-size: 14px; }
+    .steps { text-align: left; margin: 30px 0; border-top: 1px dashed rgba(217, 168, 74, 0.3); padding-top: 25px; }
+    .step-item { 
+      display: flex; align-items: flex-start; margin-bottom: 15px; margin-top: 15px; 
+      background: #151c2c; padding: 15px; border-radius: 4px; border: 1px solid #26334d;
+      transition: all 0.3s ease;
+    }
+    .step-item:hover {
+      background: #1a2336; border-color: rgba(217, 168, 74, 0.5);
+      transform: translateX(6px); box-shadow: -5px 0 15px rgba(217, 168, 74, 0.1);
+    }
+    .step-icon { color: var(--accent); width: 30px; margin-right: 15px; font-size: 20px; text-shadow: 0 0 10px rgba(44, 179, 255, 0.4); }
+    .step-item strong { color: var(--primary); font-family: 'Cinzel', serif; letter-spacing: 0.5px; }
+    .step-item div { font-size: 13px; color: var(--text-muted); line-height: 1.5; }
+    
+    .warning-box { 
+      background: rgba(224, 40, 40, 0.08); border: 1px solid rgba(224, 40, 40, 0.2); 
+      border-left: 4px solid var(--danger); border-right: 4px solid var(--danger);
+      padding: 20px; border-radius: 4px; text-align: left; margin-top: 25px; 
+      box-shadow: 0 0 15px rgba(224, 40, 40, 0.1);
+    }
+    .warning-box h4 { 
+      color: var(--danger); margin: 0 0 10px 0; display: flex; align-items: center; gap: 8px; 
+      font-size: 16px; font-family: 'Cinzel', serif; font-weight: 700; letter-spacing: 1px;
+      text-shadow: 0 0 8px rgba(224,40,40,0.4);
+    }
     
     .btn-start { 
-      display: block; background: var(--ig-gradient); color: white; padding: 14px; 
-      border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 14px;
-      margin-top: 30px; transition: 0.3s;
+      display: block; background: var(--gradient-btn); color: #3a2400; padding: 14px; 
+      border-radius: 4px; border: 1px solid #ffeba1; border-bottom: 3px solid #8c6827;
+      text-decoration: none; font-weight: 800; font-size: 16px; font-family: 'Cinzel', serif;
+      margin-top: 35px; transition: all 0.2s ease; box-shadow: 0 4px 15px rgba(217, 168, 74, 0.3);
+      text-transform: uppercase; letter-spacing: 1.5px;
     }
-    .btn-start:hover { opacity: 0.9; }
+    .btn-start:hover { 
+      box-shadow: 0 6px 20px rgba(246, 210, 113, 0.5); transform: translateY(-2px); filter: brightness(1.1);
+    }
+    .btn-start:active { transform: translateY(1px); border-bottom-width: 1px; box-shadow: 0 2px 10px rgba(217, 168, 74, 0.4); }
 
-    /* --- TAMBAHAN WATERMARK TEMA IG SEBAGAI FOOTER --- */
+    /* --- WATERMARK TEMA MLBB --- */
     .watermark-container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 6px;
-      margin-top: 15px;
-      padding-bottom: 15px;
-      pointer-events: none;
+      display: flex; justify-content: center; align-items: center; gap: 8px; margin-top: 20px; padding-bottom: 15px; pointer-events: none;
     }
-    .watermark-text {
-      font-size: 12px;
-      font-weight: 600;
-      color: rgba(38, 38, 38, 0.5);
-      letter-spacing: 0.5px;
-    }
+    .watermark-text { font-size: 13px; font-weight: 600; color: rgba(217, 168, 74, 0.4); letter-spacing: 1px; font-family: 'Cinzel', serif; }
     .watermark-glow {
-      color: #E1306C; /* Warna pink khas Instagram */
-      font-weight: 700;
-      animation: igPulseGlow 2.5s ease-in-out infinite alternate;
-      display: inline-block;
+      color: var(--primary-hover); font-weight: 700; display: inline-block;
+      animation: mlbbPulseGlow 2.5s ease-in-out infinite alternate;
     }
 
-    @keyframes igPulseGlow {
-      0% { text-shadow: 0 0 5px rgba(225, 48, 108, 0.3); transform: scale(1); }
-      100% { text-shadow: 0 0 12px rgba(225, 48, 108, 0.7), 0 0 20px rgba(240, 148, 51, 0.4); transform: scale(1.05); }
+    @keyframes mlbbPulseGlow {
+      0% { text-shadow: 0 0 5px rgba(217, 168, 74, 0.2); transform: scale(1); }
+      100% { text-shadow: 0 0 15px rgba(217, 168, 74, 0.6), 0 0 25px rgba(44, 179, 255, 0.4); transform: scale(1.05); }
     }
-    /* ---------------------------------- */
   </style>
 </head>
 <body>
@@ -75,43 +141,43 @@
   <div class="card">
     <img src="https://i.ibb.co.com/zTHpGJ3W/20260513-105333-0000.png" class="logo" alt="Logo SMANJO">
     <h1>Portal Ujian SMAN 1 WONGSOREJO</h1>
-    <p>Selamat datang, di portal ujian sman1wongsorejo. Harap ikuti langkah-langkah berikut untuk memulai ujian.</p>
+    <p>Selamat datang di Battle Arena SMANJO. Harap persiapkan diri dan ikuti instruksi berikut sebelum masuk.</p>
 
     <div class="steps">
       <div class="step-item">
         <div class="step-icon"><i class="fas fa-id-card"></i></div>
-        <div><strong>Siapkan Kartu Ujian</strong><br>Pastikan Anda sudah memiliki Username dan Token yang valid.</div>
+        <div><strong>Siapkan Kartu Ujian</strong><br>Pastikan Anda sudah memiliki ID Player (Username) dan Token yang valid.</div>
       </div>
       <div class="step-item">
         <div class="step-icon"><i class="fas fa-sign-in-alt"></i></div>
-        <div><strong>Login Sistem</strong><br>Pilih kode ujian sesuai jadwal dan masukkan data diri Anda.</div>
+        <div><strong>Login Sistem</strong><br>Pilih kode Match (Ujian) sesuai jadwal dan verifikasi data hero Anda.</div>
       </div>
       <div class="step-item">
-        <div class="step-icon"><i class="fas fa-pencil-alt"></i></div>
-        <div><strong>Mulai Mengerjakan</strong><br>Baca soal dengan teliti dan jangan lupa klik tombol kumpulkan jika sudah selesai.</div>
+        <div class="step-icon"><i class="fas fa-gavel"></i></div>
+        <div><strong>Mulai Mengerjakan</strong><br>Selesaikan misi dengan teliti dan jangan lupa klik tombol SUBMIT jika sudah selesai.</div>
       </div>
     </div>
 
     <div class="warning-box">
-      <h4><i class="fas fa-exclamation-circle"></i> KEAMANAN & SANKSI</h4>
-      <p style="font-size: 13px; margin:0; font-weight:700;">Sistem menggunakan pengawas otomatis. Pelanggaran berikut akan berakibat fatal:</p>
-      <ul style="font-size: 13px; color: #ED4956; padding-left: 18px; margin: 8px 0;">
-        <li>Keluar aplikasi / membagi layar / floating window / minimize / membuka aplikasi lain WA,IG,GOOGLE: <b>Peringatan ke 1 dst</b></li>
-        <li>jika 4x Melanggar: <b>MAKA UJIAN DIBLOKIR OTOMATIS!</b></li>
+      <h4><i class="fas fa-exclamation-triangle"></i> RULES OF SURVIVAL</h4>
+      <p style="font-size: 13px; margin:0; font-weight:600; color: var(--text-main);">Sistem menggunakan pengawas otomatis (Anti-Cheat). Pelanggaran berikut berakibat fatal:</p>
+      <ul style="font-size: 13px; color: #ff9999; padding-left: 18px; margin: 10px 0; line-height: 1.5;">
+        <li>Keluar aplikasi / membagi layar / floating window / minimize / membuka aplikasi lain (WA, IG, Browser): <b>Peringatan ke-1 dst</b></li>
+        <li>Jika terdeteksi 4x Melanggar: <b>AKUN UJIAN DIBANNED (BLOKIR) OTOMATIS!</b></li>
       </ul>
       
-      <div style="border-top: 1px solid #efefef; padding-top: 10px; margin-top: 10px;">
-        <h4 style="font-size:13px; color:#262626;"><i class="fas fa-mobile-alt"></i> PENTING: Pengaturan Layar HP</h4>
-        <p style="font-size: 12px; margin: 5px 0;">Agar layar tidak mati saat mengerjakan:</p>
-        <ol style="font-size: 12px; padding-left: 18px; color: #475569; margin:0;">
-          <li>Buka <b>Pengaturan > Tampilan</b>.</li>
-          <li>Pilih <b>Waktu Tunggu Layar</b>.</li>
-          <li>Ubah menjadi <b>10 Menit</b> atau <b>Tidak Pernah</b>.</li>
+      <div style="border-top: 1px dashed rgba(224, 40, 40, 0.3); padding-top: 12px; margin-top: 12px;">
+        <h4 style="font-size:14px; color:var(--primary); font-family: 'Cinzel', serif; letter-spacing: 1px; margin-bottom: 8px; text-shadow: none;"><i class="fas fa-mobile-alt"></i> BUFF: Pengaturan Layar HP</h4>
+        <p style="font-size: 12px; margin: 5px 0; color: var(--text-muted);">Agar layar tidak mati (AFK) saat mengerjakan:</p>
+        <ol style="font-size: 12px; padding-left: 18px; color: var(--text-muted); margin:0;">
+          <li>Buka <b>Pengaturan > Tampilan (Display)</b>.</li>
+          <li>Pilih <b>Waktu Tunggu Layar (Sleep)</b>.</li>
+          <li>Ubah menjadi <b style="color:var(--text-main);">10 Menit</b> atau <b style="color:var(--text-main);">Tidak Pernah</b>.</li>
         </ol>
       </div>
     </div>
 
-    <a href="https://sman1wongsorejo.github.io/ujian/" class="btn-start">Mulai Ujian Sekarang</a>
+    <a href="https://sman1wongsorejo.github.io/ujian/" class="btn-start">ENTER BATTLEFIELD (MULAI UJIAN)</a>
   </div>
 
   <div class="watermark-container">
