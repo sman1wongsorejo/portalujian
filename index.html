@@ -5,189 +5,194 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>PORTAL UJIAN CBT SMAN 1 WONGSOREJO</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
   
   <style>
     :root {
-      /* Warna Khas Game Center iOS Modern */
-      --gc-color-1: #FF2A6D;
-      --gc-color-2: #05D5FF;
-      --gc-color-3: #5856D6;
-      --gc-color-4: #34C759;
-      --text-main: #1C1C1E;
-      --text-muted: #8E8E93;
-      --card-bg: rgba(255, 255, 255, 0.75);
+      /* Warna Standar Akademik & EdTech Modern */
+      --primary: #1e3a8a; /* Deep Navy Blue */
+      --primary-hover: #1e40af;
+      --accent: #2563eb; /* Royal Blue */
+      --accent-light: #eff6ff;
+      --text-main: #0f172a; /* Slate 900 */
+      --text-muted: #64748b; /* Slate 500 */
+      --card-bg: #ffffff;
+      --border-color: #e2e8f0;
+      --danger: #dc2626;
+      --danger-bg: #fef2f2;
+      --danger-border: #fecaca;
     }
     
     * { box-sizing: border-box; }
 
     body { 
-      font-family: -apple-system, BlinkMacSystemFont, 'Inter', sans-serif; 
+      font-family: 'Inter', sans-serif; 
       margin: 0; 
       padding: 20px; 
       color: var(--text-main);
-      /* Latar belakang animasi gradien ala Game Center */
-      background: linear-gradient(-45deg, #ff9a9e, #fecfef, #a1c4fd, #c2e9fb);
-      background-size: 400% 400%;
-      animation: gradientBG 15s ease infinite;
+      /* Background gradien halus berstandar enterprise education */
+      background: linear-gradient(135deg, #f1f5f9 0%, #cbd5e1 100%);
+      background-attachment: fixed;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
-    }
-
-    @keyframes gradientBG {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
+      justify-content: center;
     }
 
     .container { 
       width: 100%;
-      max-width: 600px; 
+      max-width: 640px; 
       margin: auto; 
       display: flex; 
       flex-direction: column; 
       justify-content: center; 
     }
 
-    /* Efek Glassmorphism (Kaca Buram iOS) */
+    /* Panel Card Profesional */
     .card { 
       background: var(--card-bg); 
-      backdrop-filter: blur(24px); 
-      -webkit-backdrop-filter: blur(24px);
-      border-radius: 32px; 
-      padding: 35px 25px; 
-      border: 1px solid rgba(255, 255, 255, 0.6); 
-      margin-bottom: 10px; 
+      border-radius: 24px; 
+      padding: 40px 30px; 
+      border: 1px solid var(--border-color); 
+      margin-bottom: 15px; 
       text-align: center; 
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08); 
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    /* Garis aksen profesional di atas card */
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 6px;
+      background: linear-gradient(90deg, var(--primary), var(--accent), #06b6d4);
     }
     
     .logo { 
-      width: 390px; 
+      width: 280px; 
       max-width: 100%; 
       height: auto; 
-      margin-bottom: 25px; 
+      margin-bottom: 20px; 
       display: block; 
       margin-left: auto; 
       margin-right: auto;
-      filter: drop-shadow(0 10px 15px rgba(0,0,0,0.1));
-      transition: transform 0.3s ease;
-    }
-
-    .logo:hover {
-      transform: scale(1.02);
+      filter: drop-shadow(0 4px 6px rgba(0,0,0,0.04));
     }
     
     h1 { 
+      font-family: 'Poppins', sans-serif;
       font-size: 24px; 
-      font-weight: 800; 
-      color: var(--text-main); 
-      margin-top: 0;
-      letter-spacing: -0.5px;
+      font-weight: 700; 
+      color: var(--primary); 
+      margin: 0 0 10px 0;
+      letter-spacing: -0.3px;
     }
 
     p { 
-      font-size: 15px; 
+      font-size: 14.5px; 
       color: var(--text-muted); 
-      line-height: 1.5;
+      line-height: 1.6;
+      margin-bottom: 30px;
     }
     
-    /* List bergaya Achievement/Menu iOS */
+    /* List Langkah-langkah / Panduan */
     .steps { 
       text-align: left; 
-      margin: 30px 0; 
+      margin: 25px 0; 
       display: flex;
       flex-direction: column;
       gap: 12px;
     }
 
     .step-item { 
-      background: rgba(255, 255, 255, 0.6);
-      border-radius: 20px;
-      padding: 15px;
+      background: #f8fafc;
+      border-radius: 14px;
+      padding: 16px;
       display: flex; 
       align-items: center;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
-      transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-      border: 1px solid rgba(255, 255, 255, 0.8);
+      border: 1px solid var(--border-color);
+      transition: all 0.2s ease;
     }
 
     .step-item:hover {
-      transform: translateY(-3px) scale(1.01);
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
-      background: rgba(255, 255, 255, 0.9);
+      border-color: var(--accent);
+      background: var(--accent-light);
+      transform: translateY(-2px);
     }
 
     .step-icon { 
-      /* Ikon gelembung warna khas Game Center */
-      background: linear-gradient(135deg, var(--gc-color-1), var(--gc-color-2));
-      color: white; 
-      width: 45px; 
-      height: 45px;
-      min-width: 45px;
-      margin-right: 15px; 
-      font-size: 20px; 
-      border-radius: 14px;
+      background: var(--accent-light);
+      color: var(--accent); 
+      width: 42px; 
+      height: 42px;
+      min-width: 42px;
+      margin-right: 16px; 
+      font-size: 18px; 
+      border-radius: 10px;
       display: flex;
       justify-content: center;
       align-items: center;
-      box-shadow: 0 4px 10px rgba(5, 213, 255, 0.3);
+      box-shadow: 0 2px 4px rgba(37, 99, 235, 0.1);
     }
     
-    .step-item:nth-child(2) .step-icon { background: linear-gradient(135deg, var(--gc-color-2), var(--gc-color-3)); }
-    .step-item:nth-child(3) .step-icon { background: linear-gradient(135deg, var(--gc-color-3), var(--gc-color-4)); }
+    .step-item:nth-child(2) .step-icon { background: #e0e7ff; color: #4f46e5; }
+    .step-item:nth-child(3) .step-icon { background: #d1fae5; color: #059669; }
 
-    .step-text { font-size: 14px; line-height: 1.4; color: #3A3A3C; }
-    .step-text strong { color: var(--text-main); font-size: 15px; display: block; margin-bottom: 2px; }
+    .step-text { font-size: 13.5px; line-height: 1.4; color: var(--text-muted); }
+    .step-text strong { color: var(--text-main); font-size: 14.5px; display: block; margin-bottom: 2px; font-weight: 600; }
 
-    /* Kotak Peringatan bergaya iOS Alert */
+    /* Kotak Peringatan Standar Akademik */
     .warning-box { 
-      background: rgba(255, 59, 48, 0.08); 
-      border: 1px solid rgba(255, 59, 48, 0.2); 
+      background: var(--danger-bg); 
+      border: 1px solid var(--danger-border); 
       padding: 20px; 
-      border-radius: 20px; 
+      border-radius: 14px; 
       text-align: left; 
       margin-top: 25px; 
-      backdrop-filter: blur(10px);
     }
+    
     .warning-box h4 { 
-      color: #FF3B30; 
-      margin: 0 0 10px 0; 
+      color: var(--danger); 
+      margin: 0 0 8px 0; 
       display: flex; 
       align-items: center; 
       gap: 8px; 
-      font-size: 15px; 
+      font-size: 14.5px; 
       font-weight: 700;
+      font-family: 'Poppins', sans-serif;
+    }
+    
+    .warning-box ul, .warning-box ol {
+      margin: 0;
+      padding-left: 18px;
+      line-height: 1.5;
     }
     
     .btn-start { 
       display: block; 
-      /* Tombol Gradien iOS Game Center */
-      background: linear-gradient(90deg, #FF2A6D, #05D5FF, #5856D6);
-      background-size: 200% auto;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
       color: white; 
       padding: 16px; 
-      border-radius: 25px; /* Pill shape */
+      border-radius: 12px; 
       text-decoration: none; 
-      font-weight: 700; 
-      font-size: 16px;
+      font-weight: 600; 
+      font-size: 15px;
+      font-family: 'Poppins', sans-serif;
+      letter-spacing: 0.5px;
       margin-top: 35px; 
-      box-shadow: 0 8px 20px rgba(5, 213, 255, 0.3);
-      transition: all 0.4s ease;
-      animation: gradientShift 3s ease infinite;
+      box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3);
+      transition: all 0.3s ease;
     }
     
-    @keyframes gradientShift {
-      0% { background-position: 0% center; }
-      50% { background-position: 100% center; }
-      100% { background-position: 0% center; }
-    }
-
     .btn-start:hover { 
-      transform: translateY(-2px) scale(1.02); 
-      box-shadow: 0 12px 25px rgba(5, 213, 255, 0.4);
+      transform: translateY(-2px); 
+      box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+      background: linear-gradient(135deg, var(--primary-hover) 0%, var(--primary) 100%);
     }
 
     .btn-start:active {
@@ -204,22 +209,17 @@
       padding-bottom: 20px;
       pointer-events: none;
     }
+    
     .watermark-text {
-      font-size: 13px;
-      font-weight: 600;
-      color: rgba(28, 28, 30, 0.6);
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--text-muted);
       letter-spacing: 0.5px;
     }
+    
     .watermark-glow {
-      color: #05D5FF; 
-      font-weight: 800;
-      animation: iosPulseGlow 3s ease-in-out infinite alternate;
-      display: inline-block;
-    }
-
-    @keyframes iosPulseGlow {
-      0% { text-shadow: 0 0 5px rgba(5, 213, 255, 0.4); transform: scale(1); }
-      100% { text-shadow: 0 0 15px rgba(5, 213, 255, 0.8), 0 0 25px rgba(88, 86, 214, 0.5); transform: scale(1.03); }
+      color: var(--primary); 
+      font-weight: 700;
     }
   </style>
 </head>
@@ -229,38 +229,37 @@
   <div class="card">
     <img src="https://i.ibb.co.com/zTHpGJ3W/20260513-105333-0000.png" class="logo" alt="Logo SMANJO">
     <h1>Portal Ujian SMAN 1 WONGSOREJO</h1>
-    <p>Selamat datang di portal ujian sman1wongsorejo. Harap ikuti langkah-langkah berikut untuk memulai ujian.</p>
+    <p>Selamat datang di portal ujian resmi SMAN 1 Wongsorejo. Silakan ikuti panduan tata tertib di bawah ini sebelum memulai ujian.</p>
 
     <div class="steps">
       <div class="step-item">
         <div class="step-icon"><i class="fas fa-id-card"></i></div>
-        <div class="step-text"><strong>Siapkan Kartu Ujian</strong>Pastikan Anda sudah memiliki Username dan Token yang valid.</div>
+        <div class="step-text"><strong>Siapkan Kartu Ujian</strong>Pastikan Anda sudah memiliki Username, Token, dan jadwal ujian yang valid.</div>
       </div>
       <div class="step-item">
         <div class="step-icon"><i class="fas fa-sign-in-alt"></i></div>
-        <div class="step-text"><strong>Login Sistem</strong>Pilih kode ujian sesuai jadwal dan masukkan data diri Anda.</div>
+        <div class="step-text"><strong>Login Sistem</strong>Pilih kode mata ujian sesuai jadwal dan masukkan data diri Anda dengan benar.</div>
       </div>
       <div class="step-item">
         <div class="step-icon"><i class="fas fa-pencil-alt"></i></div>
-        <div class="step-text"><strong>Mulai Mengerjakan</strong>Baca soal dengan teliti dan jangan lupa klik tombol kumpulkan jika sudah selesai.</div>
+        <div class="step-text"><strong>Mulai Mengerjakan</strong>Baca setiap soal dengan teliti dan klik tombol kumpulkan jika telah selesai.</div>
       </div>
     </div>
 
     <div class="warning-box">
-      <h4><i class="fas fa-exclamation-circle"></i> KEAMANAN & SANKSI</h4>
-      <p style="font-size: 13px; margin:0; font-weight:700; color: #1C1C1E;">Sistem menggunakan pengawas otomatis. Pelanggaran berikut akan berakibat fatal:</p>
-      <ul style="font-size: 13px; color: #FF3B30; padding-left: 18px; margin: 8px 0; line-height: 1.5;">
-        <li>Keluar aplikasi / membagi layar / floating window / minimize / membuka aplikasi lain WA,IG,GOOGLE: <b>Peringatan ke 1 dst</b></li>
-        <li>Jika 4x Melanggar: <b>MAKA UJIAN DIBLOKIR OTOMATIS!</b></li>
+      <h4><i class="fas fa-shield-alt"></i> KEAMANAN & SANKSI UJIAN</h4>
+      <p style="font-size: 13px; margin: 0 0 6px 0; font-weight: 600; color: #1e293b;">Sistem pengawas otomatis aktif. Pelanggaran berikut akan dicatat:</p>
+      <ul style="font-size: 13px; color: var(--danger); margin-bottom: 12px;">
+        <li>Keluar aplikasi, minimize, split screen, atau membuka aplikasi lain (WA, IG, Google): <b>Peringatan Pelanggaran</b></li>
+        <li>Akumulasi 4x Melanggar: <b>AKUN UJIAN DIBLOKIR OTOMATIS!</b></li>
       </ul>
       
-      <div style="border-top: 1px solid rgba(0,0,0,0.1); padding-top: 15px; margin-top: 15px;">
-        <h4 style="font-size:14px; color:#1C1C1E; margin-bottom: 5px;"><i class="fas fa-mobile-alt"></i> PENTING: Pengaturan Layar HP</h4>
-        <p style="font-size: 13px; margin: 0 0 8px 0; color: #3A3A3C;">Agar layar tidak mati saat mengerjakan:</p>
-        <ol style="font-size: 13px; padding-left: 18px; color: #3A3A3C; margin:0; line-height: 1.6;">
-          <li>Buka <b>Pengaturan > Tampilan</b>.</li>
-          <li>Pilih <b>Waktu Tunggu Layar</b>.</li>
-          <li>Ubah menjadi <b>10 Menit</b> atau <b>Tidak Pernah</b>.</li>
+      <div style="border-top: 1px solid rgba(220, 38, 38, 0.15); padding-top: 12px; margin-top: 10px;">
+        <h4 style="font-size: 13.5px; color: #1e293b; margin-bottom: 6px;"><i class="fas fa-mobile-alt"></i> Tips Pengaturan Layar HP</h4>
+        <ol style="font-size: 12.5px; color: #475569; margin: 0;">
+          <li>Buka <b>Pengaturan > Tampilan (Display)</b>.</li>
+          <li>Pilih <b>Waktu Tunggu Layar (Screen Timeout)</b>.</li>
+          <li>Atur durasi minimal <b>10 Menit</b> agar layar tidak terkunci otomatis.</li>
         </ol>
       </div>
     </div>
